@@ -6,6 +6,6 @@ To install necessary programs, in the terminal type in...
 
 ```
 chmod +x setup.sh
-./script.sh
+./setup.sh
 
 ```
