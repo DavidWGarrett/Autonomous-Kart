@@ -82,6 +82,9 @@ sudo apt install xclip xsel -y
 # Enable GPIO setup
 echo "Setting up GPIO access on Ubuntu 24.04"
 
+echo "Setting up raspi-config"
+sudo apt install raspi-config -y
+
 # Update package lists
 sudo apt update
 
