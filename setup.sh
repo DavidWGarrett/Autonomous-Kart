@@ -93,6 +93,9 @@ sudo apt update
 echo "Installing GPIO dependencies..."
 sudo apt install -y python3-pip python3-gpiozero python3-rpi.gpio
 sudo apt install -y gpiod libgpiod-dev python3-libgpiod
+sudo apt install -y python3-spidev
+sudo apt install -y python3-pyserial
+
 
 # Create gpio group if it doesn't exist
 if ! getent group gpio > /dev/null; then
@@ -132,6 +135,14 @@ gpioinfo
 echo "Checking GPIO permissions..."
 ls -l /dev/gpiomem
 ls -l /dev/gpiochip*
+
+echo "Installing wiringpi and libwiringpi-dev"
+sudo apt install -y wiringpi libwiringpi-dev
+
+echo "To fix the permission denied when doing serial over usb"
+sudo usermod -a -G dialout $USER
+
+
 
 # Clone the ROS 2 workspace from GitHub
 echo "Cloning the ROS 2 workspace from GitHub..."
