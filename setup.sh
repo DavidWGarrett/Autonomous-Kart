@@ -78,6 +78,7 @@ sudo apt install git -y
 echo "Installing Vim"
 sudo apt install vim vim-gtk3 -y
 sudo apt install xclip xsel -y
+sudo apt install neovim -y
 
 # Enable GPIO setup
 echo "Setting up GPIO access on Ubuntu 24.04"
