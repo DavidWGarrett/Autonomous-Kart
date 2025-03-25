@@ -9,24 +9,31 @@ def extend_actuator():
     print("Extending actuator...")
     stationary.off()   # Ensure reverse is off
     moving.on()
-    sleep(20)
+    sleep(20)          # Extend duration
     moving.off()
 
 def retract_actuator():
     print("Retracting actuator...")
     moving.off()       # Ensure forward is off
     stationary.on()
-    sleep(20)
+    sleep(20)          # Retract duration
     stationary.off()
 
 try:
-    while True:
+    for i in range(5):  # Run 5 cycles
+        print(f"\nCycle {i + 1}")
         extend_actuator()
-        sleep(1)
+        sleep(10)       # Pause after extending
         retract_actuator()
-        sleep(1)
+        sleep(10)       # Pause after retracting
+
+    print("All cycles complete. Cleaning up...")
 
 except KeyboardInterrupt:
-    print("Stopping actuator...")
+    print("Interrupted! Stopping actuator...")
+
+finally:
     moving.off()
     stationary.off()
+    moving.close()
+    stationary.close()
